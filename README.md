@@ -33,8 +33,8 @@ This Java project simulates the Sliding Window Protocol, a fundamental concept i
 
 1. **Client**:
     - Sends frames in a window-based batch.
-    - Waits for acknowledgment from the server.
-    - Retransmits frames if an acknowledgment is not received.
+    - Waits for acknowledgement from the server.
+    - Retransmits frames if an acknowledgement is not received.
 
 2. **Server**:
     - Receives frames and checks if they are in the correct sequence.
@@ -59,6 +59,7 @@ This Java project simulates the Sliding Window Protocol, a fundamental concept i
 2. Navigate to the project directory:
    ```bash
    cd sliding-window-protocol
+   
 3. Open the project in your IDE.
 
 ### Usage
@@ -77,13 +78,13 @@ Server: Frame 0 received and acknowledged.\
 Server: Frame 1 received and acknowledged.\
 Client: Sending frames in the window [1 - 2]\
 Server: Frame 1 is out of order. Expecting frame 2.\
-Client: No acknowledgment for frame 1. Resending...\
+Client: No acknowledgement for frame 1. Resending...\
 Client: Sending frames in the window [2 - 3]\
 Server: Frame 2 received and acknowledged.\
 Server: Frame 3 received and acknowledged.\
 Client: Sending frames in the window [3 - 4]\
 Server: Frame 3 is out of order. Expecting frame 4.\
-Client: No acknowledgment for frame 3. Resending...\
+Client: No acknowledgement for frame 3. Resending...\
 Client: Sending frames in the window [4 - 5]\
 Server: Frame 4 received and acknowledged.\
 Client: All frames sent successfully!
@@ -96,7 +97,7 @@ Client: All frames sent successfully!
 
 **2. SlidingWindowServer:**
 - Simulates the server's functionality.
-- Tracks the next expected frame and provides acknowledgment.
+- Tracks the next expected frame and provides acknowledgement.
 
 **3. SlidingWindowClient:**
 - Simulates the client's functionality.
