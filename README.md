@@ -54,11 +54,12 @@ This Java project simulates the Sliding Window Protocol, a fundamental concept i
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/rabbirahat/sliding-window-protocol.git
+   [git clone https://github.com/rabbirahat/sliding-window-protocol.git](https://github.com/rabbirahat/sliding-window-protocol-simulation.git)
 
 2. Navigate to the project directory:
    ```bash
-   cd sliding-window-protocol
+   cd sliding-window-protocol-simulation
+   cd src
    
 3. Open the project in your IDE.
 
