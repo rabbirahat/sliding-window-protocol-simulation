@@ -50,18 +50,25 @@ This Java project simulates the Sliding Window Protocol, a fundamental concept i
 - Java Development Kit (JDK) 8 or higher.
 - Any IDE or text editor (e.g., IntelliJ IDEA, Eclipse, VS Code).
 
-### *Setup*
+[//]: # (### *Setup*)
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/rabbirahat/sliding-window-protocol-simulation.git
+[//]: # ()
+[//]: # (1. Clone the repository:)
 
-2. Navigate to the project directory:
-   ```bash
-   cd sliding-window-protocol-simulation
-   cd src
+[//]: # (   ```bash)
+
+[//]: # (   git clone https://github.com/rabbirahat/sliding-window-protocol-simulation.git)
+
+[//]: # ()
+[//]: # (2. Navigate to the project directory:)
+
+[//]: # (   ```bash)
+
+[//]: # (   cd sliding-window-protocol-simulation)
+
+[//]: # (   cd src)
    
-3. Open the project in your IDE.
+[//]: # (3. Open the project in your IDE.)
 
 ### Usage
 1. Run the SlidingWindowMain class.
