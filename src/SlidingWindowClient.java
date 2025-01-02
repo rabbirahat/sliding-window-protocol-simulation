@@ -1,14 +1,24 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class SlidingWindowClient {
     private final int windowSize; // Maximum number of frames that can be sent in one window
     private int currentFrame = 0; // Keeps track of the current frame being sent
     private final int totalFrames; // Total number of frames to be sent
     private final SlidingWindowServer server; // Reference to the server object
+    private final List<String> dataFrames; // Holds the string data for each frame
 
     // Constructor to initialize the client
     public SlidingWindowClient(int totalFrames, int windowSize, SlidingWindowServer server) {
         this.totalFrames = totalFrames;
         this.windowSize = windowSize;
         this.server = server;
+        this.dataFrames = new ArrayList<>();
+
+        // Populate the frames with string data
+        for (int i = 0; i < totalFrames; i++) {
+            dataFrames.add("DataFrame_" + i);
+        }
     }
 
     // Method to send frames to the server
@@ -21,7 +31,8 @@ public class SlidingWindowClient {
             // Send frames within the window size
             for (int i = 0; i < windowSize && currentFrame + i < totalFrames; i++) {
                 int frame = currentFrame + i; // Calculate the frame number
-                boolean ack = server.receiveFrame(frame); // Attempt to send the frame to the server
+                String data = dataFrames.get(frame); // Fetch string data for the frame
+                boolean ack = server.receiveFrame(frame, data); // Send the frame to the server with the frame index and string data
 
                 // Check if the server acknowledged the frame
                 if (!ack) {

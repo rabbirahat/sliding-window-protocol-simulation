@@ -23,7 +23,11 @@ This Java project simulates the Sliding Window Protocol, a fundamental concept i
 - Total number of frames to send.
 - Window size (maximum number of frames sent at once).
 
-**3. Robust Error Handling**:
+**3. String Data Transmission**:
+- Frames carry string data (e.g., "DataFrame_0", "DataFrame_1").
+- The server validates the sequence and displays the frame content upon receipt.
+
+**4. Robust Error Handling**:
 - Handles out-of-order frames.
 - Resends unacknowledged frames.
 
@@ -32,14 +36,16 @@ This Java project simulates the Sliding Window Protocol, a fundamental concept i
 ## How It Works
 
 1. **Client**:
-    - Sends frames in a window-based batch.
-    - Waits for acknowledgement from the server.
-    - Retransmits frames if an acknowledgement is not received.
+   - Sends frames in a window-based batch.
+   - Each frame includes an index and a string payload.
+   - Waits for acknowledgment from the server.
+   - Retransmits frames if an acknowledgment is not received.
 
 2. **Server**:
-    - Receives frames and checks if they are in the correct sequence.
-    - Acknowledges frames in the correct order.
-    - Rejects out-of-sequence frames, prompting the client to resend.
+   - Receives frames and checks if they are in the correct sequence.
+   - Displays the frame's data content upon successful receipt.
+   - Acknowledges frames in the correct order.
+   - Rejects out-of-sequence frames, prompting the client to resend.
 
 ---
 
@@ -70,7 +76,7 @@ This Java project simulates the Sliding Window Protocol, a fundamental concept i
    
 [//]: # (3. Open the project in your IDE.)
 
-### Usage
+## Usage
 1. Run the SlidingWindowMain class.
 2. Provide the inputs when prompted:
    - Total number of frames: Total frames to send.
@@ -78,23 +84,17 @@ This Java project simulates the Sliding Window Protocol, a fundamental concept i
 3. Observe the frame transmission process in the console.
 
 ### *Example Input*
-Enter total number of frames: 5\
+Enter total number of frames: 3\
 Enter window size: 2
 ### *Example Output*
 Client: Sending frames in the window [0 - 1]\
-Server: Frame 0 received and acknowledged.\
-Server: Frame 1 received and acknowledged.\
+Server: Frame 0 containing "DataFrame_0" received and acknowledged\
+Server: Frame 1 containing "DataFrame_1" received and acknowledged\
 Client: Sending frames in the window [1 - 2]\
-Server: Frame 1 is out of order. Expecting frame 2.\
-Client: No acknowledgement for frame 1. Resending...\
+Server: Frame 1 is out of order. Expecting frame 2\
+Client: No acknowledgment for frame 1. Resending...\
 Client: Sending frames in the window [2 - 3]\
-Server: Frame 2 received and acknowledged.\
-Server: Frame 3 received and acknowledged.\
-Client: Sending frames in the window [3 - 4]\
-Server: Frame 3 is out of order. Expecting frame 4.\
-Client: No acknowledgement for frame 3. Resending...\
-Client: Sending frames in the window [4 - 5]\
-Server: Frame 4 received and acknowledged.\
+Server: Frame 2 containing "DataFrame_2" received and acknowledged\
 Client: All frames sent successfully!
 
 ## Code Overview
@@ -105,11 +105,13 @@ Client: All frames sent successfully!
 
 **2. SlidingWindowServer:**
 - Simulates the server's functionality.
-- Tracks the next expected frame and provides acknowledgement.
+- Tracks the next expected frame and validates the frame order.
+- Displays the content of each received frame.
 
 **3. SlidingWindowClient:**
 - Simulates the client's functionality.
-- Manages the sliding window and retransmits unacknowledged frames.
+- Manages the sliding window and sends frames containing string data.
+- Retransmits unacknowledged frames.
 
 ## Contribution
 Contributions are welcome! Feel free to submit a pull request or open an issue for any bug reports, suggestions, or feature requests.
